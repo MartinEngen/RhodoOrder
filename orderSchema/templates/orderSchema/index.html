@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+{% block Content %}
+
+
+  <div class="container" id="form_container">
+
+    <div class="row">
+
+
+      <div class="col-md-offset-2 col-md-9">
+        <h1>Kontakt Informasjon</h1>
+
+        <p>For å fulføre reservasjonen, vennligst fyll ut det følgende skjema. Husk å dobbelsjekk informasjon av
+          reservasjonen før du går videre.</p>
+      </div>
+      <div class="col-md-offset-2 col-md-8">
+
+        <form method="post" id="orderForm">{% csrf_token %}
+          <div class="form-group">
+            <label for="email">Epost adresse</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Epost">
+            {{ form.email.errors }}
+          </div>
+          <div class="form-group">
+            <label for="first_name">Fornavn</label>
+            <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Fornavn">
+            {{ form.first_name.errors }}
+          </div>
+          <div class="form-group">
+            <label for="last_name">Etternavn</label>
+            <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Fornavn">
+            {{ form.last_name.errors }}
+          </div>
+
+          <div class="form-group">
+            <label for="phone_number">Telefonnummer</label>
+            <input type="tel" class="form-control" id="phone_number" name="phone_number"
+                   placeholder="Telefonnummer">
+            {{ form.phone_number.errors }}
+          </div>
+
+
+          <div class="form-group">
+            <label for="misc_info">Annen Informasjon</label>
+            <textarea class="form-control" id="misc_info" name="misc_info" rows="3"></textarea>
+          </div>
+
+
+          <hr>
+          <div class="panel panel-default">
+            <div class="panel-body">
+
+              <div id="plant_fields"></div>
+              <div class="col-sm-3 nopadding">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="plantName" name="plantName[]" value=""
+                         placeholder="Plante Navn">
+                </div>
+              </div>
+              <div class="col-sm-3 nopadding">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="size" name="size[]" value=""
+                         placeholder="size">
+                </div>
+              </div>
+              <div class="col-sm-3 nopadding">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="amount" name="amount[]" value=""
+                         placeholder="amount">
+                </div>
+              </div>
+              <div class="col-sm-3 nopadding">
+                <div class="form-group">
+                  <div class="input-group input-group-btn">
+                    <input type="text" class="form-control" id="price" name="price[]" value=""
+                           placeholder="Pris">
+                    <button class="btn btn-success" type="button" onclick="plant_fields();"><span
+                        class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn">Fullfør bestilling</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+      var room = 1;
+
+      function plant_fields() {
+          console.log("Adding Field");
+          room++;
+          var objTo = document.getElementById('plant_fields')
+          var divtest = document.createElement("div");
+          divtest.setAttribute("class", "form-group removeclass" + room);
+          var rdiv = 'removeclass' + room;
+          divtest.innerHTML = '<div class="col-sm-3 nopadding"><div class="form-group"> <input type="text" class="form-control" id="plantName" name="plantName[]" value="" placeholder="Plante navn"></div></div><div class="col-sm-3 nopadding"><div class="form-group"> <input type="text" class="form-control" id="size" name="size[]" value="" placeholder="size"></div></div><div class="col-sm-3 nopadding"><div class="form-group"> <input type="text" class="form-control" id="amount" name="amount[]" value="" placeholder="amount"></div></div><div class="col-sm-3 nopadding"><div class="form-group input-group-btn"><input type="text" class="form-control" id="amount" name="amount[]" value="" placeholder="amount"><button class="btn btn-danger" type="button" onclick="remove_plant_fields(\' + room + \');"> <span class="glyphicon glyphicon-minus" aria-hidden="true"></span> </button></div></div><div class="col-sm-3 nopadding"><div class="form-group">' +
+              '</div></div></div><div class="clear"></div>';
+
+          objTo.appendChild(divtest)
+      }
+
+      function remove_plant_fields(rid) {
+          $('.removeclass' + rid).remove();
+      }
+  </script>
+{% endblock Content %}
