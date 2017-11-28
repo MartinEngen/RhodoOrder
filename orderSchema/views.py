@@ -7,6 +7,10 @@ from django.forms import formset_factory
 from .models import Customer, Order, Product
 
 
+def mk_int(s):
+    s = s.strip()
+    return int(s) if s else 1
+
 # Create your views here.
 def order(request):
     if (request.method == 'POST'):
@@ -56,18 +60,23 @@ def order(request):
                     logging.warning("Size - Out of Index Error")
 
                 try:
-                    currentPlantAmount = plantAmountList[x]
+                    print (plantAmountList[x])
+
+                    currentPlantAmount = mk_int(plantAmountList[x])
                 except IndexError:
                     logging.warning("Amount - Out of Index Error")
 
                 try:
-                    currentPlantPrice = plantPriceList[x]
+                    currentPlantPrice = mk_int(plantPriceList[x])
                 except IndexError:
                     logging.warning("Price - Out of Index Error")
 
 
                 currentProduct = Product(order=currentOrder, plant_name=currentPlantName, size=currentPlantSize, amount=currentPlantAmount, price=currentPlantPrice)
                 currentProduct.save()
+
+
+            return render(request, 'orderSchema/success.html')
 
 
 

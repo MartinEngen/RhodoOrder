@@ -14,6 +14,10 @@ class Customer(models.Model):
     phone_number = models.CharField('Telefonnummer', max_length=12)
 
 class Order(models.Model):
+    def __str__(self):
+        return self.customer.first_name + ' ' + self.customer.last_name + ' ' + str(self.order_date)
+
+    order_date = models.DateField('Bestilligns dato', auto_now_add=True)
     customer = models.ForeignKey(Customer, verbose_name='Kunde', related_name='Kunde', on_delete=models.CASCADE)
 
 class Product(models.Model):
