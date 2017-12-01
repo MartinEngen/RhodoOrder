@@ -6,7 +6,10 @@ from django.db import models
 # Create your models here.
 class Customer(models.Model):
     def __str__(self):
-        return self.first_name.encode('utf-8') + ' ' + self.last_name.encode('utf-8')
+        return self.first_name + ' ' + self.last_name
+
+    def __unicode__(self):
+        return self.first_name + ' ' + self.last_name
 
     email = models.EmailField('Epost Adresse', primary_key=True, max_length=100)
     first_name = models.CharField('Fornavn', max_length=100)
@@ -15,7 +18,10 @@ class Customer(models.Model):
 
 class Order(models.Model):
     def __str__(self):
-        return self.customer.first_name.encode('utf-8') + ' ' + self.customer.last_name.encode('utf-8') + ' ' + str(self.order_date).encode('utf-8')
+        return self.customer.first_name + ' ' + self.customer.last_name.encode('utf-8') + ' ' + str(self.order_date).encode('utf-8')
+
+    def __unicode__(self):
+        return self.customer.first_name + ' ' + self.customer.last_name.encode('utf-8') + ' ' + str(self.order_date)
 
     order_date = models.DateField('Bestilligns dato', auto_now_add=True)
     customer = models.ForeignKey(Customer, verbose_name='Kunde', related_name='Kunde', on_delete=models.CASCADE)
@@ -25,7 +31,7 @@ class Product(models.Model):
         return unicode(self.plant_name) + ' ' + unicode(self.size)
 
     def __unicode__(self):
-        return "Unicode"
+        return unicode(self.plant_name) + ' ' + unicode(self.size)
 
     order = models.ForeignKey(Order)
     plant_name = models.CharField('Plane Navn', max_length=255)

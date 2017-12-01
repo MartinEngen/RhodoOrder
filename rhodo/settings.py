@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'mail_templated',
     'orderSchema.apps.OrderschemaConfig',
     'frontPage.apps.FrontpageConfig'
 ]

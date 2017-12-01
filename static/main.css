@@ -21,11 +21,9 @@ body {
     background-color: sandybrown;
     background-size: auto; } }
 html {
-  height: 100%;
-  font-size: x-large; }
+  height: 100%; }
 
 input {
-  font-size: 1.1em !important;
   color: black !important; }
 
 .orderSchema {

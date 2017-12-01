@@ -11,12 +11,21 @@ def mk_int(s):
     s = s.strip()
     return int(s) if s else 1
 
+def priceInt(s):
+    s = s.strip()
+    return int(s) if s else 0
+
+
 # Create your views here.
 def order(request):
     if (request.method == 'POST'):
         print(request.POST)
         myForm = OrderForm(request.POST)
-
+        listOfPlants = []
+        plantItem = {
+            'name': ''
+            'amount'
+        }
         print(myForm.is_valid())
         if (myForm.is_valid()):
             print("Valid Form!.")
@@ -67,16 +76,24 @@ def order(request):
                     logging.warning("Amount - Out of Index Error")
 
                 try:
-                    currentPlantPrice = mk_int(plantPriceList[x])
+                    currentPlantPrice = priceInt(plantPriceList[x])
                 except IndexError:
                     logging.warning("Price - Out of Index Error")
 
 
                 currentProduct = Product(order=currentOrder, plant_name=currentPlantName, size=currentPlantSize, amount=currentPlantAmount, price=currentPlantPrice)
+                print (currentProduct.price)
+                listOfPlants.append(currentProduct)
                 currentProduct.save()
 
+            context = {
+                'listOfPlants': listOfPlants
+            }
 
-            return render(request, 'orderSchema/success.html')
+            from mail_templated import send_mail
+
+            send_mail('orderSchema/email.tpl', {'name': first_name, 'listOfPlants': listOfPlants}, 'ikke.svar@hagevekster.no', [email, 'jo.engen@gmail.com', 'nitrax92@gmail.com'])
+            return render(request, 'orderSchema/success.html', context)
 
 
 

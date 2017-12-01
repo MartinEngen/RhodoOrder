@@ -5,6 +5,26 @@
     <main role="main">
       <div class="jumbotron frontpageCard">
         <h1>Takk for bestillingen!</h1>
+        <table class="table">
+          <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Username</th>
+          </tr>
+          </thead>
+          <tbody>
+          {% for o in listOfPlants %}
+            <tr>
+              <th scope="row">{{ forloop.counter0 }}</th>
+              <td>{{ o.plant_name }}</td>
+              <td>{{ o.amount }}</td>
+              <td>{{ o.price }}</td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
       </div>
     </main>
   </div> <!-- /container -->
