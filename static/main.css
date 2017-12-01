@@ -2,22 +2,31 @@ h1 {
   color: #FFB03B; }
 
 body {
-  background-image: url("images/luck.jpg");
+  background-image: url("images/vegetation.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
   background-size: 100%; }
 
+#orderInfo {
+  background-color: #468966;
+  color: white; }
+
 @media screen and (min-width: 768px) {
   .frontpageCard {
-    margin-top: 300px;
+    margin-top: 150px;
     background-color: #468966; } }
 @media screen and (max-width: 1500px) {
   body {
     background-color: sandybrown;
     background-size: auto; } }
 html {
-  height: 100%; }
+  height: 100%;
+  font-size: x-large; }
+
+input {
+  font-size: 1.1em !important;
+  color: black !important; }
 
 .orderSchema {
   background-color: #468966;

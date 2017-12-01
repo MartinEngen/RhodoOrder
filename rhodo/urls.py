@@ -21,5 +21,5 @@ from frontPage.views import index
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index),
-    url(r'^bestille$', order),
+    url(r'^bestille$', order, name='order_form'),
 ]

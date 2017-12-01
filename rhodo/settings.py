@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'orderSchema.apps.OrderschemaConfig',
     'frontPage.apps.FrontpageConfig'
 ]
-
+#'django.middleware.locale.LocaleMiddleware',
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
