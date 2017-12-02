@@ -6,16 +6,27 @@
   <div class="container" id="form_container">
 
     <div class="row">
-
-      <div class="jumbotron" id="orderInfo">
-        <h1>Bestilling av Rhododendron</h1>
-        <p class="lead">For å foreta en bestilling, vennligst fyll ut skjemaet under. Dersom du har problemer, ta kontakt</p>
-      </div>
       <div class="col-md-offset-2 col-md-9">
 
       </div>
       <div class="col-md-12 orderSchema">
-        <h1>Kontaktinformasjon</h1>
+        <h1 class="centerText">Rohododendron-Haven<br>Bestillingsskjema</h1>
+        <div class="formText">
+        <p>Vennligst fyll ut din ønsket bestilling fra årets <a href="http://www.rhodobutik.dk/shop/frontpage.html"
+                                                                target="_blank">Rohododendron-Haven</a> import.</p>
+          <h2 class="formTitleSmaller">Slik gjør du:</h2><p>
+        <ol>
+          <li>Fyll ut kontaktinformasjon</li>
+          <li>Finn frem hvilke planter du ønsker fra <a href="http://www.rhodobutik.dk/shop/frontpage.html"
+                                                        target="_blank">Rohododendron-Haven</a></li>
+          <li>Legg inn informasjon om hver plante under "Planter"</li>
+          <li>Trykk "LEGG TIL NY RAD" for å få et nytt felt til å legge inn planter</li>
+          <li>Når feltene er fylt ut, vennligst dobbelsjekk og trykk FULLFØR BESTILLING</li>
+        </ol>
+        </p>
+        </div>
+        <hr>
+        <h2 class="formTitle">Kontaktinformasjon</h2>
         <form method="post" id="orderForm">{% csrf_token %}
           <div class="col-md-12">
             <div class="form-group">
@@ -30,7 +41,7 @@
             </div>
             <div class="form-group">
               <label for="last_name">Etternavn</label>
-              <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Fornavn" required>
+              <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Etternavn" required>
               {{ form.last_name.errors }}
             </div>
 
@@ -46,10 +57,11 @@
               <label for="misc_info">Annen Informasjon</label>
               <textarea class="form-control" id="misc_info" name="misc_info" rows="3"></textarea>
             </div>
+            <hr>
           </div>
 
 
-          <h1> Planter</h1>
+          <h2 class="formTitle">Planter</h2>
           <div id="field" class="col-md-12">
             <div>
               <div id="field0" class="col-md-12">
@@ -110,7 +122,7 @@
 
               $('.remove-me').click(function (e) {
                   e.preventDefault();
-                  var myNumber = this.id.replace( /^\D+/g, '');
+                  var myNumber = this.id.replace(/^\D+/g, '');
                   var fieldID = "#field" + myNumber;
                   console.log(fieldID);
                   console.log($(this));

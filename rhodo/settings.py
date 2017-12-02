@@ -75,7 +75,8 @@ TEMPLATES = [
         },
     },
 ]
-#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+print(os.path.join(BASE_DIR, 'static'))
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 WSGI_APPLICATION = 'rhodo.wsgi.application'
 
@@ -121,9 +122,18 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
+# Absolute path to the directory that holds media.
+# Example: "/home/username/projectname/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# URL that handles the media served from MEDIA_ROOT. Make sure to use a
+# trailing slash if there is a path component (optional in other cases).
+# Examples: "http://media.lawrence.com", "http://example.com/media/"
+MEDIA_URL = '/media/'
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, 'common_static'),
 ]

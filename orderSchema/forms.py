@@ -20,8 +20,8 @@ class OrderForm(forms.Form):
     first_name = forms.CharField(label='Fornavn', max_length=100, required=True)
     last_name = forms.CharField(label='Etternavn', max_length=100, required=True)
 
-    email = forms.EmailField(label='Epost adresse', max_length=100, required=True)
-    phone_number = forms.CharField(max_length=12, validators=[RegexValidator(r'^\d{1,10}$')], required=True)
+    email = forms.CharField(label='Epost adresse', max_length=100, required=True)
+    phone_number = forms.CharField(max_length=50, required=False)
 
     misc_info = forms.CharField(label='Ekstra informasjon (Maks 255 Karakterer)', max_length=255, required=False)
 

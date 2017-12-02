@@ -4,14 +4,19 @@
   <div class="container">
     <main role="main">
       <div class="jumbotron frontpageCard">
-        <h1>Takk for bestillingen!</h1>
+        <h1>Hei, {{ name }}. <br>Ditt bestillignsskjema er nå registrert</h1>
+        <p>Under vil du finne en oversikt over bestillingen, og dette vil også kommme som en Epost. <br>
+        Jeg ber deg ta vare på bestillingsID som befinner seg under. Denne kan jeg bruke for å søke meg frem til din bestilling, om du ønsker noen endinger ol.</p>
+
+        <h2>Ordre ID: {{ orderId }}</h2>
         <table class="table">
           <thead class="thead-dark">
           <tr>
             <th scope="col">#</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
-            <th scope="col">Username</th>
+            <th scope="col">Plante Navn</th>
+            <th scope="col">Størrelse</th>
+            <th scope="col">Mengde</th>
+            <th scope="col">Pris</th>
           </tr>
           </thead>
           <tbody>
@@ -19,12 +24,14 @@
             <tr>
               <th scope="row">{{ forloop.counter0 }}</th>
               <td>{{ o.plant_name }}</td>
+              <td>{{ o.size }}</td>
               <td>{{ o.amount }}</td>
               <td>{{ o.price }}</td>
             </tr>
           {% endfor %}
           </tbody>
         </table>
+      <p>Merk: Prisen er eksludert norsk og dansk moms, samt frakt og andre avgifter.</p>
       </div>
     </main>
   </div> <!-- /container -->

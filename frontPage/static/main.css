@@ -1,0 +1,73 @@
+h1 {
+  color: #FFB03B; }
+
+.formText {
+  color: white;
+  font-size: large; }
+  .formText a {
+    color: #FFF0A5; }
+
+.centerText {
+  text-align: center; }
+
+.formTitle {
+  margin-left: 20px;
+  color: #FFB03B; }
+
+label {
+  color: #FFF0A5; }
+
+.formTitleSmaller {
+  color: #FFF0A5;
+  font-size: medium; }
+
+body {
+  background-image: url("images/vegetation.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: 100%; }
+
+#orderInfo {
+  background-color: #468966;
+  color: white; }
+
+.frontpageCard {
+  background-color: #468966 !important; }
+
+@media screen and (min-width: 768px) {
+  .frontpageCard {
+    margin-top: 150px; } }
+@media screen and (max-width: 1500px) {
+  body {
+    background-color: sandybrown;
+    background-size: auto; } }
+html {
+  height: 100%; }
+
+input {
+  color: black !important; }
+
+.orderSchema {
+  background-color: #468966;
+  border-radius: 10px;
+  margin-bottom: 100px; }
+
+.remove-me {
+  margin-top: 22px; }
+
+#add-more {
+  margin-left: 30px;
+  font-weight: bold;
+  font-size: larger;
+  text-transform: uppercase; }
+
+.submitFormButton {
+  float: right;
+  margin: 20px;
+  height: 50px;
+  font-weight: bold;
+  font-size: larger;
+  text-transform: uppercase; }
+
+/*# sourceMappingURL=main.css.map */

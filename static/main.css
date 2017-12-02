@@ -2,7 +2,7 @@ h1 {
   color: #FFB03B; }
 
 body {
-  background-image: url("images/vegetation.jpg");
+  background-image: url("images/forest.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
@@ -12,10 +12,12 @@ body {
   background-color: #468966;
   color: white; }
 
+.frontpageCard {
+  background-color: #468966 !important; }
+
 @media screen and (min-width: 768px) {
   .frontpageCard {
-    margin-top: 150px;
-    background-color: #468966; } }
+    margin-top: 150px; } }
 @media screen and (max-width: 1500px) {
   body {
     background-color: sandybrown;
