@@ -48,6 +48,10 @@ def order(request):
             plantsInOrder = len(plantNameList)
             count = 0
             for x in range(0, plantsInOrder):
+                hasName = True
+                hasPrice = True
+                hasNum = True
+                hasSize = True
                 currentPlantName = ''
                 currentPlantSize = ''
                 currentPlantAmount = 0
@@ -59,22 +63,27 @@ def order(request):
 
                     if currentPlantName == "" or not currentPlantName:
                         currentPlantName = 'Ikke oppgitt'
+                        hasName = False
                 except IndexError:
                     currentPlantName = 'Ikke oppgitt'
+                    hasName = False
                     logging.warning("Name - Out of Index Error")
 
                 try:
                     currentPlantSize = plantSizeList[x]
 
                     if currentPlantSize == "" or not currentPlantSize:
+                        hasSize = False
                         currentPlantSize = 'Ikke oppgitt'
                 except IndexError:
+                    hasSize = False
                     currentPlantSize = 'Ikke oppgitt'
                     logging.warning("Size - Out of Index Error")
 
                 try:
                     currentPlantAmount = mk_int(plantAmountList[x])
                 except IndexError:
+                    hasName = False
                     currentPlantAmount = 1
                     logging.warning("Amount - Out of Index Error")
 
@@ -83,13 +92,15 @@ def order(request):
 
                     if currentPlantPrice == "" or not currentPlantPrice:
                         currentPlantPrice = 'Ikke Oppgitt'
+                        hasPrice = False
                 except IndexError:
                     currentPlantPrice = 'Ikke Oppgitt'
+                    hasPrice = False
                     logging.warning("Price - Out of Index Error")
 
 
                 currentProduct = Product(order=currentOrder, plant_name=currentPlantName, size=currentPlantSize, amount=currentPlantAmount, price=currentPlantPrice)
-                if (not currentProduct.plant_name) and (not currentProduct.size) and (not currentProduct.price):
+                if (not hasName) and (not hasSize) and (not hasPrice):
                     logging.warning("Empty Field - lets not save..")
                 else:
                     count = count + 1

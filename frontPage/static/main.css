@@ -70,4 +70,9 @@ input {
   font-size: larger;
   text-transform: uppercase; }
 
+.successCard {
+  color: white; }
+  .successCard p {
+    font-size: 16px; }
+
 /*# sourceMappingURL=main.css.map */

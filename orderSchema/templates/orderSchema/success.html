@@ -3,11 +3,14 @@
 {% block Content %}
   <div class="container">
     <main role="main">
-      <div class="jumbotron frontpageCard">
-        <h1>Hei, {{ name }}. <br>Ditt bestillignsskjema er nå registrert</h1>
+      <div class="jumbotron frontpageCard successCard">
+        <h1>Hei, {{ name }}.</h1>
+        <h2>Ditt bestillingsskjema er nå registrert</h2>
         <p>Under vil du finne en oversikt over bestillingen, og dette vil også kommme som en Epost. <br>
-        Jeg ber deg ta vare på bestillingsID som befinner seg under. Denne kan jeg bruke for å søke meg frem til din bestilling, om du ønsker noen endinger ol.</p>
-
+        Jeg ber deg ta vare på ditt Ordre ID. Denne kan jeg bruke for å søke meg frem til din bestilling, om du ønsker noen endinger</p>
+        {% if count == 0 %}
+          <p style="background-color: #8E2800; font-size: xx-large; padding-left: 10px; border-radius: 2px;">Jeg fant ingen planter i din bestilling... Vennligst prøv igjen</p>
+        {% else %}
         <h2>Ordre ID: {{ orderId }}</h2>
         <table class="table">
           <thead class="thead-dark">
@@ -15,7 +18,7 @@
             <th scope="col">#</th>
             <th scope="col">Plante Navn</th>
             <th scope="col">Størrelse</th>
-            <th scope="col">Mengde</th>
+            <th scope="col">Antall</th>
             <th scope="col">Pris</th>
           </tr>
           </thead>
@@ -31,7 +34,10 @@
           {% endfor %}
           </tbody>
         </table>
-      <p>Merk: Prisen er eksludert norsk og dansk moms, samt frakt og andre avgifter.</p>
+
+         <p>Merk: Prisen er eksludert norsk og dansk moms, samt frakt og andre avgifter kommer i tillegg.</p>
+        {% endif %}
+
       </div>
     </main>
   </div> <!-- /container -->
