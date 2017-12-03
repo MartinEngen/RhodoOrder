@@ -10,8 +10,29 @@ $desktop-small: "only screen and (max-width : 1500px)"
 h1
   color: $color3
 
+.formText
+  color: white
+  font-size: large
+
+  a
+    color: $color2
+
+.centerText
+  text-align: center
+
+
+.formTitle
+  margin-left: 20px
+  color: $color3
+
+label
+  color: $color2
+
+.formTitleSmaller
+  color: $color2
+  padding-left: 20px
 body
-  background-image: url('images/forest.jpg')
+  background-image: url('images/vegetation.jpg')
   background-repeat: no-repeat
   background-attachment: fixed
   background-position: center
@@ -31,6 +52,8 @@ body
 @media screen and (min-width : 768px)
   .frontpageCard
     margin-top: 150px
+    margin-left: 50px
+    margin-right: 50px
 
 @media screen and (max-width : 1500px)
   body
@@ -64,3 +87,9 @@ input
   font-weight: bold
   font-size: larger
   text-transform: uppercase
+
+.successCard
+  color: white
+
+  p
+    font-size: 16px

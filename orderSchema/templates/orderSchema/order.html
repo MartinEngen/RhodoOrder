@@ -62,22 +62,22 @@
 
 
           <h2 class="formTitle">Planter</h2>
-          <div id="field" class="col-md-12">
+          <div id="field" class="col-md-12 row">
             <div>
               <div id="field0" class="col-md-12">
-                <div class="form-group col-md-3 col-xs-3">
+                <div class="form-group col-md-4 col-xs-6">
                   <label for="exampleInputEmail1">Plante Navn</label>
                   <input type="text" class="form-control" name="plantName" id="plantName" placeholder="Plante navn">
                 </div>
-                <div class="form-group col-md-2 col-xs-3">
+                <div class="form-group col-md-2 col-xs-6">
                   <label for="exampleInputEmail1">Størrelse</label>
                   <input type="text" class="form-control" name="size" id="size" placeholder="Størrelse">
                 </div>
-                <div class="form-group col-md-2 col-xs-3">
+                <div class="form-group col-md-2 col-xs-6">
                   <label for="exampleInputEmail1">Antall</label>
                   <input type="number" class="form-control" name="amount" id="amount" placeholder="1">
                 </div>
-                <div class="form-group col-md-2 col-xs-3 lastInput">
+                <div class="form-group col-md-2 col-xs-6 lastInput">
                   <label for="exampleInputEmail1">Pris (Per stk)</label>
                   <input type="text" class="form-control" id="price" name="price" placeholder="Pris">
                 </div>
@@ -109,10 +109,10 @@
               var addRemove = "#field" + (next) + ' .lastInput';
               next = next + 1;
               var newIn = ' <div id="field' + next + '" class="col-md-12" name="field' + next + '">' +
-                  '<div class="form-group col-md-3 col-xs-3"><label for="exampleInputEmail1">Plante Navn</label><input type="text" class="form-control" name="plantName" id="plantName" placeholder="Plante Navn"></div><div class="form-group col-md-2 col-xs-3"><label for="exampleInputEmail1">Størrelse</label><input type="text" class="form-control" name="size" id="size" placeholder="Størrelse"></div><div class="form-group col-md-2 col-xs-3"><label for="exampleInputEmail1">Antall</label><input type="number" class="form-control" name="amount" id="amount" placeholder="1"></div><div class="form-group col-md-2 col-xs-3 lastInput"><label for="exampleInputEmail1">Pris (Per stk)</label><input type="text" class="form-control" id="price" name="price" placeholder="Pris"></div>' +
+                  '<div class="form-group col-md-4 col-xs-6"><label for="exampleInputEmail1">Plante Navn</label><input type="text" class="form-control" name="plantName" id="plantName" placeholder="Plante Navn"></div><div class="form-group col-md-2 col-xs-6"><label for="exampleInputEmail1">Størrelse</label><input type="text" class="form-control" name="size" id="size" placeholder="Størrelse"></div><div class="form-group col-md-2 col-xs-6"><label for="exampleInputEmail1">Antall</label><input type="number" class="form-control" name="amount" id="amount" placeholder="1"></div><div class="form-group col-md-2 col-xs-6 lastInput"><label for="exampleInputEmail1">Pris (Per stk)</label><input type="text" class="form-control" id="price" name="price" placeholder="Pris"></div>' +
                   '</div>';
               var newInput = $(newIn);
-              var removeBtn = '<button id="remove' + (next - 1) + '" class="btn btn-danger remove-me col-md-2" >Slett</button>';
+              var removeBtn = '<button id="remove' + (next - 1) + '" class="btn btn-danger remove-me col-md-2 col-xs-8" >Slett</button>';
               var removeButton = $(removeBtn);
               $(addto).after(newInput);
               $(addRemove).after(removeButton);

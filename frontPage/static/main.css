@@ -19,7 +19,7 @@ label {
 
 .formTitleSmaller {
   color: #FFF0A5;
-  font-size: medium; }
+  padding-left: 20px; }
 
 body {
   background-image: url("images/vegetation.jpg");
@@ -35,9 +35,20 @@ body {
 .frontpageCard {
   background-color: #468966 !important; }
 
+input, textarea {
+  font-size: larger !important; }
+
+input::placeholder, textarea::placeholder {
+  font-size: larger !important; }
+
 @media screen and (min-width: 768px) {
   .frontpageCard {
-    margin-top: 150px; } }
+    margin-top: 100px;
+    margin-left: 50px;
+    margin-right: 50px; }
+
+  .btn-danger {
+    bottom-border: 1px solid red; } }
 @media screen and (max-width: 1500px) {
   body {
     background-color: sandybrown;

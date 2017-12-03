@@ -6,7 +6,7 @@ from .forms import plantForm, OrderForm
 from django.forms import formset_factory
 from .models import Customer, Order, Product
 import math
-
+from mail_templated import send_mail
 
 def mk_int(s):
     s = s.strip()
@@ -115,9 +115,9 @@ def order(request):
                 'count': count
 
             }
-            #from mail_templated import send_mail
 
-            #send_mail('orderSchema/email.tpl', {'name': first_name, 'listOfPlants': listOfPlants}, 'ikke.svar@hagevekster.no', [email, 'jo.engen@gmail.com', 'nitrax92@gmail.com'])
+
+            send_mail('orderSchema/email.tpl', {'name': first_name, 'lastName': last_name, 'email': email, 'phone': phone_number, 'listOfPlants': listOfPlants}, 'ikke.svar@hagevekster.no', [email, 'jo.engen@gmail.com', 'nitrax92@gmail.com'])
             return render(request, 'orderSchema/success.html', context)
 
         else:
